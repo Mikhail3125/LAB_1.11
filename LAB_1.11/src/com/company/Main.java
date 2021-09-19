@@ -11,7 +11,7 @@ public class Main {
         int num = InputQuantity();
         Books[] books = new Books[num];
         InputData(books, num);
-        InputData(books, num);
+        OutputData(books, num);
     }
 
 

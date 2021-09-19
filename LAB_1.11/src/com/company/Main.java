@@ -18,7 +18,7 @@ public class Main {
     public static int InputQuantity(){
         int num =0;
         Scanner amount = new Scanner (System.in);
-        String number = "";
+        String number;
         do{
             number = amount.nextLine();
             try {

@@ -73,6 +73,9 @@ public class Main {
 
     }
 
+    //   Базовый уровень
+    //   Вывести данные о книгах, тираж которых не превышает 10000 экземпляров.
+
     public static void OutputData(Books[] books, int num) {
         System.out.println("Книга тираж которой не превышает 10000: ");
 
@@ -87,6 +90,9 @@ public class Main {
 
     }
 
+
+//      Средний уровень
+//      Вывести наименование товара и конечную дату применения (годен до:).
     public static void Input_OutputProduct(Product[] product, int num) {
         for(int i = 0; i < num; ++i) {
             product[i] = new Product();

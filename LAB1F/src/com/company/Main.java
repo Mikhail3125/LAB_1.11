@@ -26,7 +26,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Введите количество книг:");
         int num = InputQuantity();
-        Books[] books = new Books[num];
+        Book[] books = new Book[num];
         InputData(books, num);
         OutputData(books, num);
         num = r.nextInt(3) + 1;
@@ -57,18 +57,15 @@ public class Main {
         return num;
     }
 
-    public static void InputData(Books[] books, int num) {
+    public static void InputData(Book[] books, int num) {
         for(int i = 0; i < num; ++i) {
-            books[i] = new Books();
-            System.out.println("Книга №" + (i + 1) + ":");
+            books[i] = new Book();
             books[i].author = Dictionaries.getSurnames()[r.nextInt(Dictionaries.getSurnames().length)];
-            System.out.println("\nАвтор: " + books[i].author);
             books[i].genre = Dictionaries.getGenres()[r.nextInt(Dictionaries.getGenres().length)];
-            System.out.println("\nЖанр: " + books[i].genre);
             books[i].name = Dictionaries.getNames()[r.nextInt(Dictionaries.getNames().length)];
-            System.out.println("\nНазвание книги: " + books[i].name);
-            books[i].edition = r.nextInt(15000) + 1;
-            System.out.println("\nТираж: " + books[i].edition + "\n\n");
+            books[i].edition = r.nextInt(15000) + 1 ;
+
+            System.out.println("\nКнига №" + (i + 1) + ":" + books[i]);
         }
 
     }
@@ -76,15 +73,12 @@ public class Main {
     //   Базовый уровень
     //   Вывести данные о книгах, тираж которых не превышает 10000 экземпляров.
 
-    public static void OutputData(Books[] books, int num) {
-        System.out.println("Книга тираж которой не превышает 10000: ");
+    public static void OutputData(Book[] books, int num) {
+        System.out.println("\n\nКнига тираж которой не превышает 10000: ");
 
         for(int i = 0; i < num; ++i) {
             if (books[i].edition < 10000) {
-                System.out.println("\nАвтор: " + books[i].author);
-                System.out.println("\nЖанр: " + books[i].genre);
-                System.out.println("\nНазвание книги: " + books[i].name);
-                System.out.println("\nТираж: " + books[i].edition + "\n\n");
+                System.out.println("\n"+ books[i]);
             }
         }
 
@@ -102,17 +96,20 @@ public class Main {
             int month = r.nextInt(12) + 1;
             int year = 2021;
             int day = r.nextInt(28) + 1;
-            String var10000 = Integer.toString(day);
-            String time = var10000 + "-" + Integer.toString(month) + "-" + Integer.toString(year);
+
+            String time = Integer.toString(day) + "-" + Integer.toString(month) + "-" + Integer.toString(year);
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern(time);
             product[i].date = LocalDateTime.of(year, month, day, 0, 0);
-            System.out.println("\nСрок: " + product[i].term);
+            System.out.println("Срок: " + product[i].term);
             LocalDateTime var10001 = product[i].date;
-            System.out.println("\nДата производства: " + var10001.format(dtf));
+            System.out.println("Дата производства: " + var10001.format(dtf));
             var10001 = product[i].date;
-            System.out.println("\nГоден до: " + var10001.plusDays(product[i].term) + "\n\n");
+            LocalDateTime L= var10001.plusDays(product[i].term);
+            System.out.println("Годен до: " + L);
             product[i].price = r.nextInt(500) + 1;
             product[i].N = r.nextInt(100000000) + 1;
+            System.out.println("Цена:"+ product[i].price);
+            System.out.println("Серия:"+ product[i].N);
         }
 
     }
